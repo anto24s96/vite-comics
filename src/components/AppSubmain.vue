@@ -39,6 +39,8 @@ export default {
 <style lang="scss" scoped>
 .bg-cian {
     background-color: #0282F9;
+    position: relative;
+    z-index: 999;
 
     ul {
         list-style-type: none;
