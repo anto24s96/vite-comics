@@ -68,7 +68,7 @@ export default {
         <nav>
             <ul class="d-flex">
                 <li v-for="(link, index) in links" :key="index">
-                    <a href="#">
+                    <a href="#" :class="index == 1 ? 'active' : ''">
                         {{ link.label }}
                     </a>
                 </li>
@@ -77,8 +77,9 @@ export default {
     </header>
 </template>
 <style lang="scss"scoped>
+@use "../styles/partials/variables" as *;
+
 header {
-    height: 150px;
     justify-content: space-between;
     align-items: center;
 
@@ -89,13 +90,34 @@ header {
     ul {
         list-style-type: none;
 
-        li a {
-            text-decoration: none;
-            color: #71777C;
-            margin: 0 10px;
-            text-transform: uppercase;
-            font-weight: 600;
+        li {
+            position: relative;
+
+            a {
+                text-decoration: none;
+                color: #71777C;
+                margin: 0 10px;
+                text-transform: uppercase;
+                font-weight: 600;
+                line-height: 10;
+
+                &.active,
+                &:hover {
+                    color: $blue_primary;
+
+                    &::after {
+                        content: "";
+                        position: absolute;
+                        bottom: 0;
+                        left: 10px;
+                        width: calc(100% - 20px);
+                        height: 5px;
+                        background-color: $blue_primary;
+                    }
+                }
+            }
         }
+
     }
 }
 </style>

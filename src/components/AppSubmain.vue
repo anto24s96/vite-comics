@@ -37,8 +37,10 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
+@use "../styles/partials/variables" as *;
+
 .bg-cian {
-    background-color: #0282F9;
+    background-color: $blue_primary;
     position: relative;
     z-index: 999;
 

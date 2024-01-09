@@ -1,6 +1,11 @@
 <script>
 export default {
     name: "AppFooter",
+    data() {
+        return {
+
+        }
+    },
 };
 </script>
 <template lang="">
@@ -79,6 +84,8 @@ export default {
     </div>
 </template>
 <style lang="scss" scoped>
+@use "../styles/partials/variables" as *;
+
 #bg-banner {
     background-image: url(../assets/img/footer-bg.jpg);
     background-size: cover;
@@ -130,7 +137,7 @@ export default {
     padding: 30px 0;
 
     #sign-button {
-        border: 2px solid #0282F9;
+        border: 2px solid $blue_primary;
         padding: 10px;
     }
 
@@ -138,7 +145,7 @@ export default {
         list-style-type: none;
 
         li:first-child {
-            color: #0282F9;
+            color: $blue_primary;
             font-size: 18px;
             margin-right: 10px;
             font-weight: 600;
