@@ -1,6 +1,11 @@
 <script>
+import AppCovers from './AppCovers.vue';
+
 export default {
     name: "AppMain",
+    components: {
+        AppCovers
+    },
     data() {
         return {
             arrCovers: [
@@ -85,13 +90,9 @@ export default {
     <div id="bg_black">
         <main class="container d-flex">
             <div class="albums-container d-flex">
-                <div class="card d-flex align-items" v-for="(cover, index) in arrCovers" ::key="index">
-                    <div class="cover_container">
-                        <img :src="`${cover.thumb}`" alt="">
-                    </div>
-                    <span class="cover_title text-white">{{ cover.series }}</span>
-                </div>
+                <AppCovers v-for="(cover, index) in arrCovers" :key="index" :cover="cover"></AppCovers>
             </div>
+            
             <div class=button_container>
                 <span class="load_button text-white">LOAD MORE</span>
             </div>
@@ -113,34 +114,6 @@ export default {
             flex-wrap: wrap;
             justify-content: center;
             padding: 25px 0;
-
-            .card {
-                margin: 10px;
-                width: calc(100% / 6 - 20px);
-                flex-direction: column;
-                padding: px 0;
-
-                .cover_container {
-                    background-color: greenyellow;
-                    height: 200px;
-                    width: 100%;
-
-                    img {
-                        height: 200px;
-                        object-fit: cover;
-                        object-position: top;
-                    }
-
-                }
-
-                .cover_title {
-                    text-transform: uppercase;
-                    display: inline-block;
-                    padding: 10px 0;
-                    font-weight: 600;
-                    text-align: center;
-                }
-            }
         }
 
         .load_button {
